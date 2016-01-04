@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7N6-DM-xew">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ff2-NF-lez">
+                                <rect key="frame" x="92" y="85" width="191" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="7q0-60-4iq"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hk3-Oh-SPc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Show Contact Picker"/>
+                                <connections>
+                                    <action selector="showContactPickerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QBl-Z1-uI4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBf-6f-lFz">
+                                <rect key="frame" x="92" y="123" width="191" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4ZD-4G-W9f"/>
+                                    <constraint firstAttribute="width" constant="191" id="k2a-GR-6tu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Fetch Contacts"/>
+                                <connections>
+                                    <action selector="fetchContactsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB3-Wj-o5F"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="80" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-Xu-APi">
+                                <rect key="frame" x="0.0" y="161" width="375" height="506"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JPd-UN-Jek"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5Os-za-oKo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eBf-6f-lFz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B8h-Je-HyO"/>
+                            <constraint firstItem="eBf-6f-lFz" firstAttribute="top" secondItem="ff2-NF-lez" secondAttribute="bottom" constant="8" id="JON-bC-d8u"/>
+                            <constraint firstItem="ff2-NF-lez" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jsb-nD-hVS"/>
+                            <constraint firstItem="8zL-Xu-APi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="L5k-qc-NFN"/>
+                            <constraint firstAttribute="trailing" secondItem="8zL-Xu-APi" secondAttribute="trailing" id="aaY-3x-NBk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8zL-Xu-APi" secondAttribute="bottom" id="gBc-Ad-HdK"/>
+                            <constraint firstItem="8zL-Xu-APi" firstAttribute="top" secondItem="eBf-6f-lFz" secondAttribute="bottom" constant="8" id="qlx-iF-7Aw"/>
+                            <constraint firstItem="ff2-NF-lez" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="rT3-in-wvz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S6K-nT-C2A">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VvT-kC-Lu2">
+                            <connections>
+                                <segue destination="T20-4O-MAJ" kind="show" identifier="addContactSegue" id="uVZ-K0-khk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="contactTable" destination="8zL-Xu-APi" id="csd-IK-7bc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144.5" y="428.5"/>
+        </scene>
+        <!--Add Contact View Controller-->
+        <scene sceneID="AYE-Ro-hdr">
+            <objects>
+                <viewController storyboardIdentifier="AddContactViewController" id="T20-4O-MAJ" customClass="AddContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="seN-uR-BJv"/>
+                        <viewControllerLayoutGuide type="bottom" id="eyb-62-Zmp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OHx-ex-vVx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EbX-6K-JfX">
+                                <rect key="frame" x="63" y="87" width="250" height="494"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avtar" translatesAutoresizingMaskIntoConstraints="NO" id="B7E-D9-5eE">
+                                        <rect key="frame" x="59" y="0.0" width="133" height="128"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="lG9-au-yzb"/>
+                                            <constraint firstAttribute="width" constant="133" id="wGj-tE-rbP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHZ-eB-F6Z">
+                                        <rect key="frame" x="35" y="138" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="WjP-oR-LSU"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Middle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKN-u1-Pfw">
+                                        <rect key="frame" x="35" y="178" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="JMD-gU-Q3J"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Nick Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1e-9g-BNk">
+                                        <rect key="frame" x="35" y="218" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="szz-c4-eEg"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter mobile number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFv-bh-qg5">
+                                        <rect key="frame" x="35" y="258" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="oPx-ra-hkI"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mf-SU-UAT">
+                                        <rect key="frame" x="35" y="298" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="Fn6-EH-rnd"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9da-NX-Cru">
+                                        <rect key="frame" x="35" y="338" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="VXq-wL-I8L"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Organization name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZ7-VI-svj">
+                                        <rect key="frame" x="35" y="378" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="KKR-2a-jjd"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Department Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yPD-u2-vdL">
+                                        <rect key="frame" x="35" y="418" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="a7b-ax-7bH"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd0-Zt-7VL">
+                                        <rect key="frame" x="86" y="458" width="79" height="36"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="SUBMIT"/>
+                                        <connections>
+                                            <action selector="submitAction:" destination="T20-4O-MAJ" eventType="touchUpInside" id="BdF-Kh-2Gx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="tFv-bh-qg5" firstAttribute="width" secondItem="8mf-SU-UAT" secondAttribute="width" id="BUU-Hp-Jz3"/>
+                                    <constraint firstItem="yPD-u2-vdL" firstAttribute="width" secondItem="nZ7-VI-svj" secondAttribute="width" id="BZ9-Sm-Jn0"/>
+                                    <constraint firstAttribute="width" constant="250" id="IK1-9f-4e1"/>
+                                    <constraint firstItem="aHZ-eB-F6Z" firstAttribute="width" secondItem="PKN-u1-Pfw" secondAttribute="width" id="NrB-Th-oFJ"/>
+                                    <constraint firstItem="nZ7-VI-svj" firstAttribute="width" secondItem="9da-NX-Cru" secondAttribute="width" id="dq1-VL-5cm"/>
+                                    <constraint firstItem="8mf-SU-UAT" firstAttribute="width" secondItem="9da-NX-Cru" secondAttribute="width" id="m1o-6S-SXG"/>
+                                    <constraint firstItem="B1e-9g-BNk" firstAttribute="width" secondItem="tFv-bh-qg5" secondAttribute="width" id="nhr-2t-vX7"/>
+                                    <constraint firstItem="PKN-u1-Pfw" firstAttribute="width" secondItem="B1e-9g-BNk" secondAttribute="width" id="oeA-Oe-B2o"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EbX-6K-JfX" firstAttribute="centerX" secondItem="OHx-ex-vVx" secondAttribute="centerX" id="QFe-M5-en8"/>
+                            <constraint firstItem="EbX-6K-JfX" firstAttribute="centerY" secondItem="OHx-ex-vVx" secondAttribute="centerY" id="mYr-cu-TMi"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="deptName" destination="yPD-u2-vdL" id="Bgc-ap-hRX"/>
+                        <outlet property="email" destination="8mf-SU-UAT" id="2Ij-Om-M4M"/>
+                        <outlet property="firstName" destination="aHZ-eB-F6Z" id="HCU-G1-XNb"/>
+                        <outlet property="jobTitle" destination="9da-NX-Cru" id="vDp-Bb-Agt"/>
+                        <outlet property="middleName" destination="PKN-u1-Pfw" id="Ubp-va-Cs3"/>
+                        <outlet property="mobile" destination="tFv-bh-qg5" id="zH2-a8-UZF"/>
+                        <outlet property="nickName" destination="B1e-9g-BNk" id="Z4u-nb-1T5"/>
+                        <outlet property="orgNmae" destination="nZ7-VI-svj" id="4O9-Fk-vMj"/>
+                        <outlet property="profileImg" destination="B7E-D9-5eE" id="RKC-kk-XIm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oKe-w7-g09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649.5" y="428.5"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="FI7-Rx-oXC">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="fmS-c6-IxE" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ksM-pu-0Ly"/>
+                        <viewControllerLayoutGuide type="bottom" id="jSS-2f-o8s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NkE-aT-hSe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ED-lj-VZM">
+                                <rect key="frame" x="63" y="124" width="250" height="420"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avtar" translatesAutoresizingMaskIntoConstraints="NO" id="Ev3-SU-4cv">
+                                        <rect key="frame" x="75" y="0.0" width="100" height="100"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="3Fg-qI-EFE"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="4zp-N2-Rlb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="7eL-da-D26"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="cWb-sw-t54"/>
+                                            <constraint firstAttribute="height" constant="24" id="kzZ-w2-1PS"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="kzZ-w2-1PS"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-2O-FZC">
+                                        <rect key="frame" x="61" y="110" width="129" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="w5h-LP-d5m"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Middle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2JR-xE-hwO">
+                                        <rect key="frame" x="53" y="150" width="144" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="icR-Wc-Orx"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Nick Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-ab-GnD">
+                                        <rect key="frame" x="60" y="190" width="130" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="8c7-oS-kOo"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter mobile number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LV3-qP-cHf">
+                                        <rect key="frame" x="47" y="230" width="156" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="sbX-X7-naR"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHT-Em-8cx">
+                                        <rect key="frame" x="50" y="270" width="150" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="3t6-Vf-E2L"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0m-eT-JdE">
+                                        <rect key="frame" x="68" y="310" width="115" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="m31-1s-stt"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Organization name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NrT-Dj-fL5">
+                                        <rect key="frame" x="35" y="350" width="181" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="A4z-Hg-SmU"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Department Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-rY-Qvg">
+                                        <rect key="frame" x="36" y="390" width="178" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="T20-4O-MAJ" id="NO3-Kd-xF1"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="2UB-Ea-t5m"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TZf-Dv-Ivp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ED-lj-VZM" firstAttribute="centerY" secondItem="NkE-aT-hSe" secondAttribute="centerY" id="8XP-Wi-lOt"/>
+                            <constraint firstItem="2ED-lj-VZM" firstAttribute="centerX" secondItem="NkE-aT-hSe" secondAttribute="centerX" id="WgX-QF-26P"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qwn-zR-z7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649.5" y="1246.5"/>
+        </scene>
+        <!--Slide Navigation Controller-->
+        <scene sceneID="zPg-fM-AO1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7N6-DM-xew" customClass="SlideNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ilr-TV-Keh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wCM-r7-G2A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDC-Xg-Pzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626.5" y="428.5"/>
+        </scene>
+        <!--Left Menu View Controller-->
+        <scene sceneID="Sxg-9S-4Ei">
+            <objects>
+                <viewController storyboardIdentifier="LeftMenuViewController" id="S0k-0R-RFm" customClass="LeftMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qfR-3E-ptg"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ck-yj-yQe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h0o-UI-y5l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5jP-zK-9Jt">
+                                <rect key="frame" x="0.0" y="179" width="375" height="488"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="leftMenuCell" textLabel="XNi-oA-BCd" style="IBUITableViewCellStyleDefault" id="7yB-1U-ypd">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7yB-1U-ypd" id="lFb-46-xXo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XNi-oA-BCd">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.0039215688589999999" green="0.29803922770000002" blue="0.39607846740000002" alpha="1" colorSpace="deviceRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="S0k-0R-RFm" id="Dgm-Gv-om4"/>
+                                    <outlet property="delegate" destination="S0k-0R-RFm" id="Ldn-YT-OfA"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animation.png" translatesAutoresizingMaskIntoConstraints="NO" id="a9b-I1-dN8">
+                                <rect key="frame" x="0.0" y="0.0" width="337" height="180"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.18158675520000001" green="0.75123766790000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5jP-zK-9Jt" firstAttribute="bottom" secondItem="7ck-yj-yQe" secondAttribute="top" id="BRX-gN-0fS"/>
+                            <constraint firstItem="5jP-zK-9Jt" firstAttribute="top" secondItem="qfR-3E-ptg" secondAttribute="bottom" constant="159" id="Nvg-vg-izE"/>
+                            <constraint firstItem="5jP-zK-9Jt" firstAttribute="leading" secondItem="a9b-I1-dN8" secondAttribute="leading" id="OyP-4E-JUh"/>
+                            <constraint firstItem="a9b-I1-dN8" firstAttribute="top" secondItem="h0o-UI-y5l" secondAttribute="top" id="SaH-gB-H4K"/>
+                            <constraint firstAttribute="trailing" secondItem="5jP-zK-9Jt" secondAttribute="trailing" id="VdQ-y0-XC9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a9b-I1-dN8" secondAttribute="trailing" constant="22" id="eqH-4s-gZk"/>
+                            <constraint firstItem="7ck-yj-yQe" firstAttribute="top" secondItem="a9b-I1-dN8" secondAttribute="bottom" constant="487" id="x9m-hP-Jf0"/>
+                            <constraint firstItem="a9b-I1-dN8" firstAttribute="leading" secondItem="h0o-UI-y5l" secondAttribute="leading" id="zXy-jL-9V4"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="5jP-zK-9Jt" id="WhC-Ri-rns"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DzL-ok-kAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144.5" y="-297.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="animation.png" width="512" height="512"/>
+        <image name="avtar" width="24" height="24"/>
+    </resources>
+</document>
